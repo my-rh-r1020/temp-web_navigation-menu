@@ -1,0 +1,169 @@
+/*========================= GOOGLE FONTS =========================*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*========================= VARIABLE CSS =========================*/
+:root {
+  /* Colors */
+  --first-color: hsl(231, 48%, 56%);
+  --title-color: hsl(231, 24%, 20%);
+  --text-color: hsl(231, 4%, 45%);
+  --body-color: hsl(231, 100%, 99%);
+  --container-color: #fff;
+
+  /* Font and Typography */
+  --body-font: "Poppins", sans-serif;
+  --tiny-font-size: 0.625rem;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --tiny-font-size: 0.688rem;
+  }
+}
+
+/*========================= BASE =========================*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*========================= CONTAINER =========================*/
+.container {
+  max-width: 968px;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+/*Remove the property of 100vh, when inserting its content*/
+.container section {
+  height: 100vh;
+  padding: 2rem 0;
+}
+
+.container h2 {
+  text-align: center;
+  color: var(--title-color);
+}
+
+/*========================= NAVBAR =========================*/
+.nav {
+  position: fixed;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  width: 328px;
+  height: 72px;
+  background-color: var(--container-color);
+  box-shadow: 0 8px 32px hsla(231, 44%, 45%, 0.2);
+  margin: 0 auto;
+  padding: 1.5rem 0.5rem;
+  border-radius: 0.65rem;
+  overflow: hidden;
+}
+
+.nav_list {
+  display: flex;
+  justify-content: center;
+  column-gap: 2rem;
+}
+
+.nav_link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav_link i {
+  font-size: 1.5rem;
+  color: var(--title-color);
+  z-index: 20;
+  transition: 0.3s;
+}
+
+.nav_name {
+  font-size: var(--tiny-font-size);
+  position: absolute;
+  font-weight: 500;
+  transition: 0.4s;
+  transform: translateY(50px);
+  z-index: 20;
+  color: var(--body-color);
+  opacity: 0;
+}
+
+/* Indicator Link */
+.indicator {
+  position: absolute;
+  left: 5px;
+  bottom: 0;
+  fill: var(--first-color);
+  transition: 0.3s;
+}
+
+/* Active Link */
+.active-link i {
+  color: var(--body-color);
+}
+
+.active-link .nav_name {
+  opacity: 1;
+  transform: translateY(28px);
+}
+
+/* Move Indicator Nav Menu*/
+.nav_link:nth-child(1).active-link ~ .indicator {
+  transform: translateX(calc(56px * 0));
+}
+
+.nav_link:nth-child(2).active-link ~ .indicator {
+  transform: translateX(calc(56px * 1));
+}
+
+.nav_link:nth-child(3).active-link ~ .indicator {
+  transform: translateX(calc(56px * 2));
+}
+.nav_link:nth-child(4).active-link ~ .indicator {
+  transform: translateX(calc(56px * 3));
+}
+.nav_link:nth-child(5).active-link ~ .indicator {
+  transform: translateX(calc(56px * 4));
+}
+
+/*========================= BREAKPOINTS =========================*/
+
+/* For Small Devices */
+@media screen and (max-width: 320px) {
+  .nav {
+    zoom: 0.8;
+  }
+}
+
+/* For Large Devices */
+@media screen and (min-width: 968px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .nav {
+    zoom: 1.1;
+  }
+}
